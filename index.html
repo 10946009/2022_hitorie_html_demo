@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ヒトリエ-Hitorie</title>
+    <style>
+         
+        a{text-decoration: none;cursor: inherit;}
+        
+        html, body {
+            height: 100%;box-sizing: border-box;
+           
+        }
+
+        #chan {
+            width: 222px;
+            height: 384px;
+            background-image: url(hitoriechan.png);
+            position:fixed;
+            left: 0px;
+            top: 310px;
+            z-index: 1;
+            transition:1s;
+            
+             
+        }
+         #chan2 {
+            width: 222px;
+            height: 384px;
+            background-image: url(w_hitoriechan.png);
+            position:fixed;
+            right: -999px;
+            top: 310px;
+           z-index: 10;
+             transition:1s;
+            
+        }
+        
+        #back{
+             width:50px;
+            height: 50px;
+            background-image: url(back.png);
+            position:fixed;
+            left:-99px;
+            top: 300px;
+            z-index: 1;
+            transition:1s;
+            opacity:0%;
+            cursor: pointer;
+        }
+        
+        
+        article {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            padding: 50px;
+            box-sizing: border-box;
+            -webkit-transition: all 1s ease-in-out;
+            transition: all 1s ease-in-out;
+            top: 0;
+        }
+
+        #tablet {
+            background: black;
+            left: 0;
+        }
+
+        #wifi {
+            background: white;
+            height:670px;
+            left: 200%;
+            border-radius:50px 0 0 0;
+        }
+
+        #tablet.move {
+            left: -100%;
+        }
+
+        #wifi.move {
+            left:150px;
+        }
+        
+        #chan.move {
+            left: -1000px;
+             transition:1s;
+        }
+        #chan2.move {
+            right: 0;
+             transition:1s;
+        }
+        #back.move {
+         opacity:100%;
+         transition:1s;
+            left:20px;
+            
+        }
+        #song.move{
+            transition-delay:3s;
+            opacity:100%;
+            }
+        #song.show{
+            opacity:100%;
+            }
+        
+        
+
+       body {
+            background-color: black;
+            font-family: sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+       div.one main {
+            margin: 0 auto;
+            width: 800px;
+            height:610px;
+           
+        }
+
+       div.one div.member a {
+            cursor: context-menu;
+        }
+
+       div.one top {
+            width: 100%;
+            height: 80px;
+            background-color: black;
+        }
+
+       div.one div.logo {
+            width: 180px;
+            height: 80px;
+            background-image: url(logo.png);
+            margin: 0 auto;
+        }
+
+       div.one div.white {
+            width: 10px;
+            height: 500px;
+            float: left;
+        }
+
+       div.one div.member {
+            width: 800px;
+            height: 510px;
+            z-index:2;
+        }
+
+      div.one  ul {
+            list-style: none;
+            margin-left: 20px;
+            padding-left: 0;
+        }
+
+       div.one li {
+            float: left;
+            z-index: 0;
+        }
+
+       div.one div.height {
+            height: 100%;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+       div.one div.name {
+            height: 10%;
+            width: 100%;
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-size: 30px;
+            opacity:90%;
+        }
+
+       div.one span {
+            font-size: 20px;
+            text-align: center;
+            line-height: 1px;
+        }
+
+       div.one div.content {
+            height: 20%;
+            width: 100%;
+            background-color: black;
+            color: white;
+            font-family: sans-serif;
+            text-align: center;
+            font-size: 13px;
+            opacity:90%;
+        }
+
+       div.one li.y a {
+            background-image: url(ygarashy.png);
+            transition: 0.3s;
+            display: block;
+            height: 500px;
+            width: 180px;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+       div.one li.w a {
+            background-image: url(wowaka.png);
+            transition: 0.3s;
+            display: block;
+            height: 500px;
+            width: 180px;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+      div.one  li.s a {
+            background-image: url(shinoda.png);
+            transition: 0.3s;
+            display: block;
+            height: 500px;
+            width: 180px;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+       div.one li.yu a {
+            background-image: url(yumao.png);
+            transition: 0.3s;
+            display: block;
+            height: 500px;
+            width: 180px;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+       div.one div.drop {
+            position: relative;
+        }
+
+        /*在指定位移的元素上一層HTML標籤，設定成“相對位置”，可做為位移元素時的參考對位座標（不然會以網頁左上角為參考點）*/
+
+       div.one div.drop:hover a.y {
+            background-image: url(ygarashy_2.png);
+            border-bottom: solid;
+            border-bottom-color: purple;
+        }
+
+       div.one div.drop:hover div.twophoto {
+            position: absolute;
+            /*改成絕對定位*/
+            display: block;
+            opacity: 100%;
+            transform: translateX(190px);
+            visibility: visible;
+        }
+        
+      div.drop:hover div.y_twophoto {
+            position: absolute;
+            /*改成絕對定位*/
+            display: block;
+            opacity: 100%;
+            transform: translateX(-190px);
+            visibility: visible;
+        }
+
+      div.one  div.drop:hover a.w {
+            background-image: url(wowaka_2.png);
+            border-bottom: solid;
+            border-bottom-color: #59642d;
+        }
+
+
+       div.one div.drop:hover a.s {
+            background-image: url(shinoda_2.png);
+            border-bottom: solid;
+            border-bottom-color: purple;
+        }
+
+       div.one div.drop:hover a.yu {
+            background-image: url(yumao_2.png);
+            border-bottom: solid;
+            border-bottom-color: #c10101;
+        }
+
+
+
+       div.one div.drop:hover div.height {
+            height: 75%;
+        }
+
+
+      div.one  div.iframe_2 {
+            float: left;
+            width: 400px;
+        }
+
+       div.one div.text {
+            color: white;
+            margin-left:100px;
+            width:500%;
+            height: 10px;
+            border-bottom: solid;
+            border-bottom-color: white;
+            
+        }
+
+      div.one  div.twophoto {
+            height: 500px;
+            width: 180px;
+            background-color: aqua;
+            z-index: 2;
+            opacity: 0%;
+             transition: 0.8s;
+            transition-delay:1s;
+            transform: translateX(0px);
+            position: absolute;
+            /*改成絕對定位*/
+            pointer-events: none;
+            visibility: hidden;
+        }
+
+       div.one div.y_twophoto {
+            height: 500px;
+            width: 180px;
+            background-color: aqua;
+            z-index: 2;
+            opacity: 0%;
+            transition: 0.8s;
+            transition-delay:1s;
+            transform: translateX(0px);
+            position: absolute;
+            /*改成絕對定位*/
+            pointer-events: none;
+            
+        }
+       
+        /*---------------------------------------------------------*/
+           
+        
+    
+    
+
+
+ 
+       div.two div.member a{cursor: context-menu;}
+
+       div.two top {
+            width: 800px;
+            height: 80px;
+           
+        }
+
+       div.two div.logo {
+            width: 300px;
+            height: 80px;
+            background-image: url(vocaloid_logo.png);
+            
+        }
+
+      div.two  div.white {
+            width: 10px;
+            height: 500px;
+            float: left;
+        }
+
+       div.two div.member {
+            width:100%;
+            height: 510px;
+            cursor: context-menu;
+        }
+
+       div.two ul {
+            list-style: none;
+            margin-left: 20px;
+            padding-left: 0;
+        }
+
+       div.two li {
+            float: left;
+            z-index: 0;
+        }
+
+      div.two  div.height {
+            height: 100%;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+      div.two div.name {
+            height: 15%;
+          margin-top:10px;
+            width: 100%;
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-size: 30px;
+        }
+
+       div.two  span {
+            font-size: 20px;
+            text-align: center;
+            line-height: 1px;
+        }
+
+
+       div.two li.wowaka {
+            background-image: url(wo_1.png);
+            transition: 0.3s;
+            display: block;
+            height: 500px;
+            width: 180px;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+      div.two  li.miku {
+            background-image: url(wo_2.png);
+            transition: 0.3s;
+            display: block;
+            height: 500px;
+            width: 180px;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+
+
+        /*在指定位移的元素上一層HTML標籤，設定成“相對位置”，可做為位移元素時的參考對位座標（不然會以網頁左上角為參考點）*/
+
+
+
+
+
+
+
+
+       div.two  div.drop:hover div.height {
+            height: 90%;
+        }
+
+        
+        div.two div.text {
+            color: black;
+            float: left;
+            width:100%;
+            height: 10px;
+            border-bottom: solid;
+            border-bottom-color: white;
+            font-size: 20px;
+        }
+        #song{
+            background-color:white;
+            transition:1s;
+            padding-top:20px;
+            padding-left:10px;
+            width:700px;
+            height:500px;
+            z-index:2;
+            float:left;
+            opacity:0%;
+        }
+        div.two div.box{
+            width:150px;height:150px;background-color:white;
+            margin:7px;float: left;
+        }
+        
+        
+    </style>
+
+   
+   
+   
+   /*--------------------------------*/
+    <link rel="icon" href="a5ety-m3641-001.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="a5ety-m3641-001.ico" type="image/x-icon">
+</head>
+
+<body>
+   <div class="one">
+    
+    <article id="tablet">
+    <div id="chan"></div>
+        <main>
+
+
+            <top><a href="#">
+                    <div class="logo"></div>
+                </a></top>
+            <div class="member">
+                <ul>
+                    <div class="drop">
+                        
+                        <li class="y"><a class="y" href="#">
+
+                                <div class="height"></div>
+                                <div class="name">イガラシ</div>
+                                <div class="content"><span>貝斯手</span>
+                                    <p>同時也在Niconico動畫內一個受歡迎的樂隊中擔任貝斯手。
+                                </div>
+                            </a></li>
+
+                    </div>
+                </ul>
+
+                <ul>
+                    <div class="drop">
+                        
+                        <div class="white"></div>
+                        <li class="w"><a class="w" href="#wifi" style="cursor: pointer;">
+                                <div class="height"></div>
+                                <div class="name">WOWAKA</div>
+                                <div class="content"><span>主唱、吉他手</span>
+                                    <p>同時也是使用VOCALOID進行創作的P主。
+                                </div>
+                            </a></li>
+                    </div>
+                </ul>
+
+                <ul>
+                    <div class="drop">
+                        
+                        <div class="white"></div>
+                        <li class="s"><a class="s" href="#">
+                                <div class="height"></div>
+                                <div class="name">シノダ</div>
+                                <div class="content"><span>吉他手、和聲</span>
+                                    <p>以JONNY為名的吉他手，以名古屋為中心活動。
+                                </div>
+                            </a></li>
+                    </div>
+                </ul>
+
+                <ul>
+                    <div class="drop">
+                        
+                        <div class="white"></div>
+                        <li class="yu"><a class="yu" href="#">
+                                <div class="height"></div>
+                                <div class="name">ゆーまお</div>
+                                <div class="content"><span>鼓手</span>
+                                    <p>
+                                        參與過Jin（自然之敵P）的作品製作。
+                                </div>
+                            </a></li>
+                    </div>
+                  
+                </ul>
+ 
+
+
+            </div>
+
+            <footer>
+                
+    
+
+            </footer>
+        </main>
+        <div class="text">
+                </div>
+    </article>
+
+</div>
+
+
+
+/*-------------------------------two-----------------------------------------*/
+
+
+<div class="two">
+   
+    <article id="wifi">
+        <div id="chan2"></div>
+       <div id="back"></div>     
+            <top><a href="#">
+                    <div class="logo"></div>
+                </a></top>
+            <div class="member">
+                <ul>
+                    <div class="drop">
+                        <div class="twophoto" style="background-image:url(ygarashy_.png)"></div>
+                        <li class="wowaka"><a class="wowaka" href="#">
+
+                                <div class="height"></div>
+                                <div class="name">WOWAKA</div>
+                            </a></li>
+
+                    </div>
+                </ul>
+
+                <ul>
+                    <div class="drop">
+                        <div class="twophoto" style="margin-left:190px; background-image: url(wowaka_r.png)"></div>
+                        <div class="white"></div>
+                        <li class="miku"><a class="miku" href="#">
+                                <div class="height"></div>
+                                <div class="name">初音ミク</div>
+                            </a>></li>
+                    </div>
+                </ul>
+              <div id="song">
+                    
+                    <div class="box"><iframe width="150" height="150" src="https://www.youtube.com/embed/P_CSdxSGfaA?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                    
+                     <div class="box"><iframe width="150" height="150" src="https://www.youtube.com/embed/uMlv9VWAxko?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                      
+                     <div class="box"><iframe width="150" height="150" src="https://www.youtube.com/embed/ZB75e7vzX0I?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                     
+                     <div class="box"><iframe width="150" height="150" src="https://www.youtube.com/embed/vnw8zURAxkU?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div> 
+                       
+                        <div class="box"><iframe width="150" height="150" src="https://www.youtube.com/embed/6nrK6iTVkz4?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                        
+                        
+                     <div class="box"><iframe width="150" height="150" src="https://www.youtube.com/embed/e5JjR7XVtEo?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>  
+                     
+                     
+                     <div class="box"><iframe width="150" height="150" src="https://www.youtube.com/embed/b_cuMcDWwsI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                     
+                     <div class="box"><iframe width="150" height="150" src="https://www.youtube.com/embed/0aDhPfeNtwg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div> 
+                      
+                       <div class="box"><iframe width="150" height="150" src="https://www.youtube.com/embed/uxNoOPetZ6g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                       
+                     <div class="box"><iframe width="150" height="150" src="https://www.youtube.com/embed/DXcY0HUURKw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>  
+                     
+                     <div class="box"><iframe width="150" height="150" src="https://www.youtube.com/embed/sVRGyUnOWtY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                     
+                     <div class="box"><iframe width="150" height="150" src="https://www.youtube.com/embed/hkKoaWTjVds?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div> 
+                    </div>
+          
+
+            </div>
+
+
+        
+
+    </article>
+
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('a.w').click(function(e) {
+                e.preventDefault();
+                $('#tablet').toggleClass('move');
+                $('#wifi').toggleClass('move');
+                $('#chan').toggleClass('move');
+                $('#chan2').toggleClass('move');
+                $('#back').toggleClass('move');
+                $('#song').toggleClass('move');
+            });
+
+                $('#back').click(function(e) {
+                e.preventDefault();
+                $('#tablet').toggleClass('move');
+                $('#wifi').toggleClass('move');
+                $('#chan').toggleClass('move');
+                $('#chan2').toggleClass('move');
+                $('#back').toggleClass('move');
+                $('#song').toggleClass('show');
+            });
+            
+        });
+    </script>
+</div>
+</body>
+
+</html>
